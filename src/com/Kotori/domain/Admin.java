@@ -10,7 +10,7 @@ import lombok.ToString;
  * @Paras: aid, adminName, pwd
  *
  */
-@Setter @Getter @ToString
+@Setter@Getter@ToString
 public class Admin {
     Integer aid;
     String adminName;

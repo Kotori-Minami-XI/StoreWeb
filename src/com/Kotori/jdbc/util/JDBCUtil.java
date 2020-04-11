@@ -1,4 +1,4 @@
-package com.kotori.jdbc.util;
+package com.Kotori.jdbc.util;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
@@ -13,15 +13,14 @@ public class JDBCUtil {
     static{
         try {
             Properties p = new Properties();
-
-            // 寻找字节码中的properties文件路径
+            // search properties path
             String path = JDBCUtil.class.getClassLoader().getResource("db.properties").getPath();
             System.out.println(path);
 
             FileInputStream in = new FileInputStream(path);
             p.load(in);
 
-            dataSource = DruidDataSourceFactory.createDataSource(p); //采用Druid
+            dataSource = DruidDataSourceFactory.createDataSource(p); // Create Druid Source
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -29,7 +28,7 @@ public class JDBCUtil {
 
     public static Connection getConnection(){
         try {
-            //2.从连接池获取数据库连接
+            //2. Obtain connection from the source
             return dataSource.getConnection();
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,9 +63,7 @@ public class JDBCUtil {
         }
     }
 
-
     public static DataSource getDataSource() {
         return dataSource;
     }
-
 }

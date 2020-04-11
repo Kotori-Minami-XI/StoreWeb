@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="stylesheet" href="css/amazeui.min.css" />
-    <link rel="stylesheet" href="js/pageStyle.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/adminModule/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/adminModule/css/amazeui.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/adminModule/js/pageStyle.css">
+    <script src="${pageContext.request.contextPath}/adminModule/js/jquery.min.js"></script>
 </head>
 <body>
 
@@ -32,17 +34,19 @@
 <div class="goods_list" id="account_List">
     <ul class="title_ul">
         <li>序号</li>
-        <li>用户</li>
+        <li>管理员</li>
         <li>修改密码</li>
         <li>移除管理员</li>
     </ul>
 
-    <ul class="list_goods_ul">
-        <li>01</li>
-        <li>Myxq</li>
-        <li><a href="#"><img class="img_icon" src="images/edit_icon.png" alt=""></a></li>
-        <li><a href="#"><img class="img_icon" src="images/delete_icon.png" alt=""></a></li>
-    </ul>
+    <c:forEach items="${adminList}" var="admin" varStatus="status">
+        <ul class="list_goods_ul">
+            <li>${status.index + 1}</li>
+            <li>${admin.adminName}</li>
+            <li><a href="/AdminUpdateServlet"><img class="img_icon" src="${pageContext.request.contextPath}/adminModule/images/edit_icon.png" alt=""></a></li>
+            <li><a href="/AdminRemoveServlet"><img class="img_icon" src="${pageContext.request.contextPath}/adminModule/images/delete_icon.png" alt=""></a></li>
+        </ul>
+    </c:forEach>
 
 </div>
 
@@ -52,15 +56,16 @@
     </div>
 
 <div id="modal_content_account">
-    <div id="close"><img src="images/delete_icon.png" alt=""></div>
+    <div id="close"><img src="${pageContext.request.contextPath}/adminModule/images/delete_icon.png" alt=""></div>
     <div class="edit_content">
 
         <div class="item1">
             <div>
                 <span>添加管理员：</span>
             </div>
+
         </div>
-        <div class="item1">
+        <div class="item1" align="left">
             <div>
                 <span>用户名：</span>
                 <input type="text" class="am-form-field" >&nbsp;&nbsp;
@@ -69,11 +74,12 @@
         </div>
         <div class="item1">
             <div>
-                <span>用户名：</span>
+                <span>密码：</span>
                 <input type="text" class="am-form-field" >&nbsp;&nbsp;
             </div>
 
         </div>
+
         <div class="item1">
             <button class="am-btn am-btn-default" type="button" >添加</button>
         </div>
