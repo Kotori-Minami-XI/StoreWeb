@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../style/common.css">
+    <link rel="stylesheet" href="css/common.css">
     <style>
         body{
             border-top: 1px solid;

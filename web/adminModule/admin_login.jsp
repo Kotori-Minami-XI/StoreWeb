@@ -13,8 +13,11 @@
 
 	<body>
 		<div id="container">
-			<form action="admin_index.html">
-				<div class="login">码蚁商城后台管理系统</div>
+			
+			<form action="${pageContext.request.contextPath}/AdminLoginServlet">
+				<div class="login">后台管理系统
+				 <!--  <span style="color:red">用户名密码错</span> -->
+				</div>
 				<div class="username-text">用户名:</div>
 				<div class="password-text">密码:</div>
 				<div class="username-field">
@@ -23,8 +26,9 @@
 				<div class="password-field">
 					<input type="password" name="password" value="1234" />
 				</div>
-				<input type="checkbox" name="remember-me" id="remember-me" /><label for="remember-me">记住用户名</label>
-				<div class="forgot-usr-pwd"></div>
+				<input type="checkbox" name="remember-me" id="remember-me" /><label for="remember-me">记住我</label>
+	
+				<div class="forgot-usr-pwd">忘记密码</div>
 				<input type="submit" name="submit" value="GO" />
 			</form>
 		</div>

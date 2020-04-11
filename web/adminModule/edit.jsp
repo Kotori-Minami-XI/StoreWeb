@@ -42,18 +42,29 @@
                 <span>商品图片：</span>
                 <input type="file" name="upload" id="upload"/>
         </div>
+        
         <div class="item1 item_desc">
             <span>商品描述：</span>
             <textarea  id="desc" name="pdesc" rows="4" cols="50"></textarea>
         </div>
-        <button class="am-btn am-btn-default" type="button" >添加</button>
+        <button class="am-btn am-btn-default" type="button" id="add">添加</button>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="am-btn am-btn-default" type="button" >重置</button>
+        <button class="am-btn am-btn-default" type="button" id="reset">重置</button>
     </div>
 
 
 </div>
 
+<script src="js/jquery.min.js"></script>
 
+<script>
+    $("#add").click(function () {
+        $(window).attr('location','main.jsp');
+    });
+    
+    $("#reset").click(function () {
+       $(window).attr('location','edit.jsp');
+    });
+</script>
 </body>
 </html>

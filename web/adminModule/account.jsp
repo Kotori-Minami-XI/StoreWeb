@@ -7,15 +7,14 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <link rel="stylesheet" href="css/amazeui.min.css" />
-    <link rel="stylesheet" href="../style/pageStyle.css">
-    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/pageStyle.css">
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
 
-
 <div class="main_top">
     <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong><small></small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">管理员列表</strong><small></small></div>
     </div>
     <hr>
     <div class="am-g">
@@ -23,7 +22,7 @@
             <div class="am-btn-toolbar">
                 <div class="am-btn-group am-btn-group-xs">
                     <button id="add" class="am-btn am-btn-default">
-                        <span class="am-icon-plus"></span> 添加分类</button>
+                        <span class="am-icon-plus"></span> 添加管理员</button>
                 </div>
             </div>
         </div>
@@ -33,39 +32,47 @@
 <div class="goods_list" id="account_List">
     <ul class="title_ul">
         <li>序号</li>
-        <li>分类名称</li>
-        <li>修改分类</li>
-        <li>删除分类</li>
+        <li>用户</li>
+        <li>修改密码</li>
+        <li>移除管理员</li>
     </ul>
 
     <ul class="list_goods_ul">
         <li>01</li>
-        <li>分类名称</li>
+        <li>Myxq</li>
         <li><a href="#"><img class="img_icon" src="images/edit_icon.png" alt=""></a></li>
         <li><a href="#"><img class="img_icon" src="images/delete_icon.png" alt=""></a></li>
     </ul>
 
 </div>
 
-<div id="modal_view">
+    <div id="modal_view">
 
 
-</div>
+    </div>
 
-<div id="modal_content">
+<div id="modal_content_account">
     <div id="close"><img src="images/delete_icon.png" alt=""></div>
     <div class="edit_content">
 
         <div class="item1">
             <div>
-                <span>添加分类：</span>
+                <span>添加管理员：</span>
             </div>
         </div>
         <div class="item1">
             <div>
-                <span>商品名称：</span>
+                <span>用户名：</span>
                 <input type="text" class="am-form-field" >&nbsp;&nbsp;
             </div>
+
+        </div>
+        <div class="item1">
+            <div>
+                <span>用户名：</span>
+                <input type="text" class="am-form-field" >&nbsp;&nbsp;
+            </div>
+
         </div>
         <div class="item1">
             <button class="am-btn am-btn-default" type="button" >添加</button>
@@ -78,12 +85,12 @@
     $(function () {
         $('#add').click(function () {
             $("#modal_view").fadeIn();
-            $("#modal_content").fadeIn();
+            $("#modal_content_account").fadeIn();
         });
 
         $("#close").click(function () {
             $("#modal_view").fadeOut();
-            $("#modal_content").fadeOut();
+            $("#modal_content_account").fadeOut();
         });
     });
 </script>

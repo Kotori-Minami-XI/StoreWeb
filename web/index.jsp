@@ -11,6 +11,12 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+
+  <a href="/StoreWeb/adminModule/admin_login.jsp">管理员登录</a><br/>
+  <a href="/StoreWeb/adminModule/account.jsp">管理员列表</a><br/>
+  <a href="/StoreWeb/adminModule/add.jsp">add</a><br/>
+  <a href="/StoreWeb/adminModule/admin_index.jsp">管理商品</a><br/>
+
+
   </body>
 </html>

@@ -8,8 +8,7 @@
 
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <link rel="stylesheet" href="css/amazeui.min.css" />
-    <link rel="stylesheet" href="../style/pageStyle.css">
-
+    <link rel="stylesheet" href="css/pageStyle.css">
 
 </head>
 <body style="background:#f3f3f3;">
@@ -57,7 +56,7 @@
 
     <ul class="list_goods_ul">
         <li>01</li>
-        <li><img src="../images/goods/good1.png" alt=""></li>
+        <li><img src="images/good1.png" alt=""></li>
         <li>商品名称</li>
         <li>商品价格</li>
         <li><a href="#"><img class="img_icon" src="images/edit_icon.png" alt=""></a></li>
@@ -65,7 +64,7 @@
     </ul>
     <ul class="list_goods_ul">
         <li>01</li>
-        <li><img src="../images/goods/good1.png" alt=""></li>
+        <li><img src="images/good1.png" alt=""></li>
         <li>商品名称</li>
         <li>商品价格</li>
         <li><img class="img_icon" src="images/edit_icon.png" alt=""></li>
@@ -73,7 +72,7 @@
     </ul>
     <ul class="list_goods_ul">
         <li>01</li>
-        <li><img src="../images/goods/good1.png" alt=""></li>
+        <li><img src="images/good1.png" alt=""></li>
         <li>商品名称</li>
         <li>商品价格</li>
         <li><img class="img_icon" src="images/edit_icon.png" alt=""></li>
@@ -81,7 +80,7 @@
     </ul>
     <ul class="list_goods_ul">
         <li>01</li>
-        <li><img src="../images/goods/good1.png" alt=""></li>
+        <li><img src="images/good1.png" alt=""></li>
         <li>商品名称</li>
         <li>商品价格</li>
         <li><img class="img_icon" src="images/edit_icon.png" alt=""></li>
@@ -89,7 +88,7 @@
     </ul>
     <ul class="list_goods_ul">
         <li>01</li>
-        <li><img src="../images/goods/good1.png" alt=""></li>
+        <li><img src="images/good1.png" alt=""></li>
         <li>商品名称</li>
         <li>商品价格</li>
         <li><img class="img_icon" src="images/edit_icon.png" alt=""></li>
@@ -97,7 +96,7 @@
     </ul>
     <ul class="list_goods_ul">
         <li>01</li>
-        <li><img src="../images/goods/good1.png" alt=""></li>
+        <li><img src="images/good1.png" alt=""></li>
         <li>商品名称</li>
         <li>商品价格</li>
         <li><img class="img_icon" src="images/edit_icon.png" alt=""></li>
@@ -105,7 +104,7 @@
     </ul>
     <ul class="list_goods_ul">
         <li>01</li>
-        <li><img src="../images/goods/good1.png" alt=""></li>
+        <li><img src="images/good1.png" alt=""></li>
         <li>商品名称</li>
         <li>商品价格</li>
         <li><img class="img_icon" src="images/edit_icon.png" alt=""></li>
@@ -113,7 +112,7 @@
     </ul>
     <ul class="list_goods_ul">
         <li>01</li>
-        <li><img src="../images/goods/good1.png" alt=""></li>
+        <li><img src="images/good1.png" alt=""></li>
         <li>商品名称</li>
         <li>商品价格</li>
         <li><img class="img_icon" src="images/edit_icon.png" alt=""></li>
@@ -123,9 +122,8 @@
     <div id="page" class="page_div">aaa</div>
 </div>
 
-
-<script src="../js/jquery.min.js"></script>
-<script type="text/javascript" src="../js/paging.js"></script>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/paging.js"></script>
 <script>
     //分页
     $("#page").paging({
@@ -138,7 +136,7 @@
     });
 
     $("#add").click(function () {
-        $(window).attr('location','edit.html');
+        $(window).attr('location','edit.jsp');
     });
 
 </script>

@@ -5,9 +5,28 @@ A compact demo for a web store constructed by JSP, Servlet, Mysql
 
 ## 2. Library
 ### 2.1 Jar lib
-        - commons-dbutils-1.7.jar
-        - druid-1.0.15.jar
-        - java.jdbc-0.7.10.jar
-        - lombok-1.18.12.jar
-        - mysql-connector-java-8.0.18.jar
+     - commons-dbutils-1.7.jar
+     - druid-1.0.15.jar
+     - java.jdbc-0.7.10.jar
+     - lombok-1.18.12.jar
+     - mysql-connector-java-8.0.18.jar
 
+## 3. Database - Mysql
+### 3.1 Initialize DB
+Use the following commands to create Database
+
+     # admin_table Initilization
+     CREATE DATABASE StoreWeb_DB;
+     USE StoreWeb_DB;  
+     CREATE TABLE `admin_table` (
+       `aid` int(5) NOT NULL,
+       `adminName` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+       `pwd` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+       PRIMARY KEY (`aid`)
+     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+     
+     # Add two administrators
+     INSERT INTO `storeweb_db`.`admin_table`(`aid`, `adminName`, `pwd`) VALUES (1, 'Bruce Li', '666');
+     INSERT INTO `storeweb_db`.`admin_table`(`aid`, `adminName`, `pwd`) VALUES (2, 'John liu', '222');
+
+    
