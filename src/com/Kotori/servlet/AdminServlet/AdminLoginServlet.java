@@ -1,9 +1,11 @@
 package com.Kotori.servlet.AdminServlet;
 
 import com.Kotori.service.adminService.AdminLoginService;
+import com.mysql.cj.Session;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,15 +26,15 @@ public class AdminLoginServlet extends HttpServlet {
             String pwd = req.getParameter("password");
 
             AdminLoginService loginService = new AdminLoginService();
-            int queryCode = loginService.validateAdmin(adminName, pwd);
+            int serviceCode = loginService.validateAdmin(adminName, pwd);
 
             // Save username in case of a failed Login
             req.setAttribute("lastUsername", adminName);
 
-            switch (queryCode) {
+            switch (serviceCode) {
                 case 0:
                     // Login succeed and continue to obtain admin list by AdminQueryServlet
-                    req.getRequestDispatcher("/AdminQueryServlet").forward(req, resp);
+                    resp.sendRedirect(req.getContextPath() + "/adminModule/account.jsp");
                     break;
                 case 1:
                     req.setAttribute("error","密码错误");

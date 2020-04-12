@@ -22,12 +22,6 @@ public class AdminQueryServlet extends HttpServlet {
             AdminQueryService service = new AdminQueryService();
             List<Admin> adminList = service.queryAllAdmin();
             req.setAttribute("adminList", adminList);
-            req.setAttribute("temp", "aaaaaaaaaa");
-
-            for (Admin admin : adminList){
-                System.out.println(admin.getAdminName());
-            }
-
 
             req.getRequestDispatcher("/adminModule/account.jsp").forward(req, resp);
         } catch (SQLException e) {

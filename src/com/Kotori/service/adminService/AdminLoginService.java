@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class AdminLoginService {
     public int validateAdmin(String adminName, String pwd) throws SQLException {
         AdminDao dao = new AdminDao();
-        Admin admin = dao.queryAdmin(adminName);
+        Admin admin = dao.queryAdminByName(adminName);
 
         if (admin == null){
             return 2; // Admin not found
