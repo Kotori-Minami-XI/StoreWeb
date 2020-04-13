@@ -21,10 +21,10 @@ public class AdminRemoveServlet extends HttpServlet {
             int serviceCode = removeService.removeAdmin(aid);
             switch (serviceCode) {
                 case 0:
-                    req.setAttribute("RemoveStatus", "删除失败");
+                    req.getSession().setAttribute("RemoveStatus", "删除失败");
                     break;
                 case 1:
-                    req.setAttribute("RemoveStatus", "已经成功删除管理员");
+                    req.getSession().setAttribute("RemoveStatus", "已经成功删除管理员");
 
                     // Remove succeed and reload current admin list
                     resp.sendRedirect(req.getContextPath() + "/adminModule/account.jsp");

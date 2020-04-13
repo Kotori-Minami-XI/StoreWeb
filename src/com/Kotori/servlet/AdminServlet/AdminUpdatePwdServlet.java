@@ -23,10 +23,10 @@ public class AdminUpdatePwdServlet extends HttpServlet {
 
             switch (serviceCode){
                 case 0:
-                    req.setAttribute("UpdatePwdStatus","管理员密码更新失败");
+                    req.getSession().setAttribute("UpdatePwdStatus","管理员密码更新失败");
                     break;
                 case 1:
-                    req.setAttribute("UpdatePwdStatus","管理员密码更新成功");
+                    req.getSession().setAttribute("UpdatePwdStatus","管理员密码更新成功");
                     break;
                 default:
                     throw new Exception("密码更新时发生异常");

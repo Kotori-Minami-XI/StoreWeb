@@ -22,7 +22,8 @@ public class AdminAddServlet extends HttpServlet {
             int serviceCode = addService.addAdmin(adminName, pwd);
             switch (serviceCode){
                 case 1:
-                    req.setAttribute("AddStatus","管理员添加成功！");
+                    //req.setAttribute("AddStatus","管理员添加成功！");
+                    req.getSession().setAttribute("AddStatus", "管理员添加成功！");
                     break;
                 default:
                     throw new Exception("添加异常");

@@ -37,11 +37,11 @@ public class AdminLoginServlet extends HttpServlet {
                     resp.sendRedirect(req.getContextPath() + "/adminModule/account.jsp");
                     break;
                 case 1:
-                    req.setAttribute("error","密码错误");
+                    req.getSession().setAttribute("error","密码错误");
                     req.getRequestDispatcher("/adminModule/admin_login.jsp").forward(req, resp);
                     break;
                 case 2:
-                    req.setAttribute("error","用户不存在");
+                    req.getSession().setAttribute("error","用户不存在");
                     req.getRequestDispatcher("/adminModule/admin_login.jsp").forward(req, resp);
                     break;
                 default:

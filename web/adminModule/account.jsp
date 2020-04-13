@@ -109,7 +109,6 @@
                     window.location.href= path;
                 }
             </script>
-
         </div>
 
     </div>
@@ -140,7 +139,6 @@
 <script type="text/javascript">
     function getAllAdmins(){
         if (${adminList == null}) {
-
             window.location.href = "${pageContext.request.contextPath}/AdminQueryServlet";
         }
     }
@@ -150,7 +148,7 @@
 <c:if test="${RemoveStatus != null}">
     <script type="text/javascript" language="javascript">
         alert("${RemoveStatus}");
-        <% request.setAttribute("RemoveStatus", null); %>
+        <% session.setAttribute("RemoveStatus", null); %>
     </script>
 </c:if>
 
@@ -158,7 +156,7 @@
 <c:if test="${AddStatus != null}">
     <script type="text/javascript" language="javascript">
         alert("${AddStatus}");
-        <% request.setAttribute("AddStatus", null); %>
+        <% session.setAttribute("AddStatus", null); %>
     </script>
 </c:if>
 
@@ -166,7 +164,7 @@
 <c:if test="${UpdatePwdStatus != null}">
     <script type="text/javascript" language="javascript">
         alert("${UpdatePwdStatus}");
-        <% request.setAttribute("UpdatePwdStatus", null); %>
+        <% session.setAttribute("UpdatePwdStatus", null); %>
     </script>
 </c:if>
 

@@ -16,6 +16,10 @@ A brief demo for a web store constructed by JSP, Servlet, Mysql
 ### 3.1 Initialize DB
 Use the following commands to create Database
 
+     # Create database
+     CREATE DATABASE storeweb_db;
+     USE storeweb_db;
+     
      # admin_table Initilization
      CREATE TABLE `admin_table` (
       `aid` int NOT NULL AUTO_INCREMENT,
