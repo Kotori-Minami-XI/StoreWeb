@@ -12,6 +12,13 @@
 
 
 	<body>
+	<%-- Check persistence --%>
+	<%
+		if (null != session.getAttribute("username")){
+			response.sendRedirect(request.getContextPath() + "/adminModule/account.jsp");
+		}
+	%>
+
 		<div id="container">
 			
 			<form action="${pageContext.request.contextPath}/AdminLoginServlet" method="post">

@@ -15,10 +15,15 @@
 
 <body>
 
-<%-- Obtain all admins per request --%>
+<%-- Obtain all admins if user has already logged in --%>
 <%
-    if (null == request.getAttribute("adminList")){
-        request.getRequestDispatcher("/AdminQueryServlet").forward(request,response);
+    if (null == session.getAttribute("username")){
+        response.sendRedirect(request.getContextPath() + "/adminModule/admin_login.jsp");
+    }
+    else {
+        if (null == request.getAttribute("adminList")){
+            request.getRequestDispatcher("/AdminQueryServlet").forward(request,response);
+        }
     }
 %>
 

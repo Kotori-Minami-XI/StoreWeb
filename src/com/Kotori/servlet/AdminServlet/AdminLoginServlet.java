@@ -1,15 +1,12 @@
 package com.Kotori.servlet.AdminServlet;
 
 import com.Kotori.service.adminService.AdminLoginService;
-import com.mysql.cj.Session;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /***
  * @Class: adminLoginServlet
@@ -20,7 +17,7 @@ import java.io.IOException;
 public class AdminLoginServlet extends HttpServlet {
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) {
         try {
             String adminName = req.getParameter("username");
             String pwd = req.getParameter("password");
@@ -33,6 +30,15 @@ public class AdminLoginServlet extends HttpServlet {
 
             switch (serviceCode) {
                 case 0:
+                    req.getSession().setAttribute("username", adminName);
+
+                    // Override JSESSIONID so that the cookie with JSESSIONID persists on browser side
+                    String sessionId = req.getSession().getId();
+                    Cookie cookie = new Cookie("JSESSIONID", sessionId);
+                    cookie.setMaxAge(24 * 60 * 60); // Cookie will expire time (seconds)
+                    resp.addCookie(cookie);
+                    System.out.println("sessionId:" + sessionId);
+
                     // Login succeed and continue to obtain admin list by AdminQueryServlet
                     resp.sendRedirect(req.getContextPath() + "/adminModule/account.jsp");
                     break;
