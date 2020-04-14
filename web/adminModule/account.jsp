@@ -55,12 +55,12 @@
 
     <c:forEach items="${adminList}" var="admin" varStatus="status">
         <ul class="list_goods_ul">
-            <li>${status.index + 1}</li>
-            <li>${admin.adminName}</li>
+            <li class="li_adminId">${status.index + 1}</li>
+            <li class="li_adminName">${admin.adminName}</li>
             <li>
-                <a href="${pageContext.request.contextPath}/AdminUpdatePwdServlet">
+                <button id="update" class="update_btn" onclick="updateInfo('${admin.adminName}')">
                     <img class="img_icon" src="${pageContext.request.contextPath}/adminModule/images/edit_icon.png" alt="">
-                </a>
+                </button>
             </li>
             <li>
                 <a href="${pageContext.request.contextPath}/AdminRemoveServlet?aid=${admin.aid}">
@@ -70,12 +70,20 @@
         </ul>
     </c:forEach>
 
+    <script type="text/javascript">
+        function updateInfo(name) {
+            //alert(name);
+            document.getElementById("update_reminder").innerText = name;
+        }
+    </script>
+
 </div>
 
+ <%-- grey Background for new window --%>
 <div id="modal_view"></div>
 
-<div id="modal_content_account">
-    <div id="close"><img src="${pageContext.request.contextPath}/adminModule/images/delete_icon.png" alt=""></div>
+<div id="modal_content_account_add">
+    <div id="add_close"><img src="${pageContext.request.contextPath}/adminModule/images/delete_icon.png" alt=""></div>
     <div class="edit_content">
 
         <div class="item1">
@@ -103,6 +111,7 @@
 
             <%-- TODO: Use post instead of get --%>
             <script>
+                // Click add_btn to trigger add admin event
                 add_btn.onclick = function () {
                     var path =
                         "${pageContext.request.contextPath}/AdminAddServlet?" +
@@ -119,28 +128,105 @@
     </div>
 </div>
 
+
+<div id="modal_content_account_update">
+    <div id="update_close"><img src="${pageContext.request.contextPath}/adminModule/images/delete_icon.png" alt=""></div>
+    <div class="edit_content">
+
+        <div class="item1">
+            <div>
+                <span>更改密码：</span>
+                <span id="update_reminder"></span>
+            </div>
+        </div>
+
+        <div class="item1" align="left">
+            <div>
+                <span>请输入旧密码：</span>
+                <input id="oldPwd" type="password" value="" class="am-form-field">&nbsp;&nbsp;
+            </div>
+        </div>
+
+        <div class="item1">
+            <div>
+                <span>请输入新密码：</span>
+                <input id="newPwdFir" type="password" value="" class="am-form-field">&nbsp;&nbsp;
+            </div>
+        </div>
+
+        <div class="item1">
+            <div>
+                <span>再次输入密码：</span>
+                <input id="newPwdSec" type="password" value="" class="am-form-field">&nbsp;&nbsp;
+            </div>
+        </div>
+
+        <div class="item1">
+            <button id="update_submit_btn" class="am-btn am-btn-default" type="button" onclick="updatePwdSubmit()">更改密码</button>
+
+            <%-- TODO: Use post instead of get --%>
+            <script>
+                function updatePwdSubmit() {
+                    var name = document.getElementById("update_reminder").innerText;
+                    var firPwd = $('#newPwdFir').val();
+                    var secPwd = $('#newPwdSec').val();
+                    var oldPwd = $('#oldPwd').val();
+                    // ??? Why getElementById cannot obtain firPwd & secPwd --> Maybe order of loading html?
+                    //var firPwd =  document.getElementById("newPwdFir").innerText;
+                    //var secPwd =  document.getElementById("newPwdSec").innerText;
+
+                    var path =
+                        "${pageContext.request.contextPath}/AdminUpdatePwdServlet?adminName=" + name
+                        + "&newPwd="
+                        + firPwd
+                        + "&oldPwd="
+                        + oldPwd;
+                    //alert(path);
+
+                    // Front page verification: Figure out if firPwd == secPwd
+                    if (null == firPwd) {
+                        alert("新输入密码不能为空！");
+                    } else if(null == secPwd) {
+                        alert("再次输入的密码不能为空！");
+                    } else if (firPwd != secPwd) {
+                        alert("两次输入的密码不一致！");
+                    } else {
+                        window.location.href = path;
+                    }
+                }
+            </script>
+        </div>
+
+    </div>
+</div>
+
+
+
 <script>
     $(function () {
         $('#add').click(function () {
             $("#modal_view").fadeIn();
-            $("#modal_content_account").fadeIn();
+            $("#modal_content_account_add").fadeIn();
         });
 
-        $("#close").click(function () {
+        $("#add_close").click(function () {
             $("#modal_view").fadeOut();
-            $("#modal_content_account").fadeOut();
+            $("#modal_content_account_add").fadeOut();
+        });
+
+        $('.update_btn').click(function () {
+            $("#modal_view").fadeIn();
+            $("#modal_content_account_update").fadeIn();
+        });
+
+        $("#update_close").click(function () {
+            $("#modal_view").fadeOut();
+            $("#modal_content_account_update").fadeOut();
         });
     });
-
-    function getAllAdmins(){
-        if (${adminList == null}) {
-
-            window.location.href = "${pageContext.request.contextPath}/AdminQueryServlet";
-        }
-    }
-
 </script>
 
+<%-- Not being used, just a reminder for javascript syntax --%>
 <script type="text/javascript">
     function getAllAdmins(){
         if (${adminList == null}) {

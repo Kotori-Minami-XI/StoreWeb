@@ -14,7 +14,7 @@ public class AdminUpdatePwdServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            String aid = req.getParameter("aid");
+            String aid = req.getParameter("adminName");
             String oldPwd = req.getParameter("oldPwd");
             String newPwd = req.getParameter("newPwd");
 
@@ -23,7 +23,7 @@ public class AdminUpdatePwdServlet extends HttpServlet {
 
             switch (serviceCode){
                 case 0:
-                    req.getSession().setAttribute("UpdatePwdStatus","管理员密码更新失败");
+                    req.getSession().setAttribute("UpdatePwdStatus","输入的密码错误！请输出正确的密码！");
                     break;
                 case 1:
                     req.getSession().setAttribute("UpdatePwdStatus","管理员密码更新成功");
